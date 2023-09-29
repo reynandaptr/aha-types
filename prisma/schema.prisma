@@ -41,12 +41,13 @@ model User {
 }
 
 enum SessionType {
-  USER_VERIFICATION
+  USER_VERIFICATION // Deprecated
   LOGIN
   SIGN_UP
-  SIGN_IN
+  SIGN_IN // Deprecated
   SIGN_OUT
   ONLINE
+  EMAIL_VERIFICATION
 }
 
 model Session {

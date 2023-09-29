@@ -4,3 +4,5 @@ export type BaseResponse<T = any> = {
   data: T | null;
   error: any;
 };
+
+export * from './user';

@@ -49,3 +49,11 @@ export const EmailVerificationRequestSchema = z.object({
     session_token: z.string(),
   }),
 });
+
+export const ResetPasswordRequestSchema = z.object({
+  body: z.object({
+    old_password: passwordSchema,
+    new_password: passwordSchema,
+    renew_password: passwordSchema,
+  }),
+});

@@ -55,5 +55,9 @@ export const ResetPasswordRequestSchema = z.object({
     old_password: passwordSchema,
     new_password: passwordSchema,
     renew_password: passwordSchema,
+  }).refine((value) => {
+    return value.new_password === value.renew_password;
+  }, {
+    message: 'Passwords do not match',
   }),
 });

@@ -58,12 +58,6 @@ jobs:
       - uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - uses: EndBug/add-and-commit@v9
-        with:
-          default_author: github_actions
-          message: "feat: update types and migration ${{ needs.cicd.outputs.new_tag }}"
-          push: false
-          new_branch: update-types-migration-${{ needs.cicd.outputs.new_tag }}
       - uses: fregante/setup-git-user@v2
       - run: make GIT_REPOSITORY_HOST=${{ vars.GIT_REPOSITORY_HOST }} PROJECT_GROUP=${{ vars.PROJECT_GROUP }} PROJECT_NAME=${{ vars.PROJECT_NAME }} TAG_VERSION=${{ needs.cicd.outputs.new_tag }}
         env:

@@ -5,4 +5,4 @@ export type BaseResponse<T = any> = {
   error: any;
 };
 
-export * from './user';
+export * from './auth';

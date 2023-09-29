@@ -61,3 +61,9 @@ export const ResetPasswordRequestSchema = z.object({
     message: 'Passwords do not match',
   }),
 });
+
+export const Oauth2RedirectRequest = z.object({
+  query: z.object({
+    code: z.string(),
+  }),
+});

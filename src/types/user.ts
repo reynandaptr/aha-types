@@ -27,6 +27,10 @@ export const SignUpRequestSchema = z.object({
     email: z.string().email(),
     password: passwordSchema,
     repassword: passwordSchema,
+  }).refine((value) => {
+    return value.password === value.repassword;
+  }, {
+    message: 'Passwords do not match',
   }),
 });
 

@@ -11,7 +11,7 @@ const passwordSchema = z.string().min(8, 'Password must have at least 8 characte
     .refine((value) => /[0-9]/.test(value), {
       message: 'Password must contain at least one digit character',
     })
-    .refine((value) => /[@#$%^&+=]/.test(value), {
+    .refine((value) => /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(value), {
       message: 'Password must contain at least one special character',
     });
 

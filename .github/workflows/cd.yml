@@ -41,16 +41,6 @@ jobs:
           push: true
           tag: '${{ steps.tag_version.outputs.new_tag }}'
           new_branch: update-types-migration-${{ steps.tag_version.outputs.new_tag }}
-      - uses: fregante/setup-git-user@v2
-      - run: make GIT_REPOSITORY_HOST=${{ vars.GIT_REPOSITORY_HOST }} PROJECT_GROUP=${{ vars.PROJECT_GROUP }} PROJECT_NAME=${{ vars.PROJECT_NAME }} TAG_VERSION=${{ steps.tag_version.outputs.new_tag }}
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL_TEST }}
-      - run: |
-          cd ./docs
-          npm install -g vercel
-          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-          vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
-      - run: rm -rf docs
   migration:
     needs: cicd
     runs-on: ubuntu-latest

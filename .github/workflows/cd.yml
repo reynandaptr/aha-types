@@ -61,7 +61,7 @@ jobs:
       - uses: fregante/setup-git-user@v2
       - run: make GIT_REPOSITORY_HOST=${{ vars.GIT_REPOSITORY_HOST }} PROJECT_GROUP=${{ vars.PROJECT_GROUP }} PROJECT_NAME=${{ vars.PROJECT_NAME }} TAG_VERSION=${{ needs.cicd.outputs.new_tag }}
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL_TEST }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
       - run: |
           cd ./docs
           npm install -g vercel

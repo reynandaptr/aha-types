@@ -40,7 +40,6 @@ export type ValidateUserResponse = {
   email: string
   is_verified: boolean
   provider: LoginProvider
-  provider_id: string
 }
 
 export const EmailVerificationRequestSchema = z.object({

@@ -36,7 +36,7 @@ export const SignUpRequestSchema = z.object({
 
 export type ValidateUserResponse = {
   id: number
-  name: string
+  name: string | null
   email: string
   is_verified: boolean
   provider: LoginProvider

@@ -30,6 +30,7 @@ export const SignUpRequestSchema = z.object({
   }).refine((value) => {
     return value.password === value.repassword;
   }, {
+    path: ['repassword'],
     message: 'Passwords do not match',
   }),
 });
@@ -57,6 +58,7 @@ export const ResetPasswordRequestSchema = z.object({
   }).refine((value) => {
     return value.new_password === value.renew_password;
   }, {
+    path: ['renew_password'],
     message: 'Passwords do not match',
   }),
 });

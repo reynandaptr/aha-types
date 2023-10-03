@@ -63,6 +63,12 @@ export const ResetPasswordRequestSchema = z.object({
   }),
 });
 
+export const Oauth2RedirectRequest = z.object({
+  query: z.object({
+    code: z.string(),
+  }),
+});
+
 export const UpdateUserProfileRequestSchema = z.object({
   body: z.object({
     name: z.string().max(50),
